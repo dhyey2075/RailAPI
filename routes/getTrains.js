@@ -1,9 +1,11 @@
-import { query, request, Router } from "express";
+import { Router } from "express";
 import UserAgent from "user-agents";
 import Prettify from "../utils/prettify.js";
+import * as cheerio from 'cheerio';
 
 const prettify = new Prettify();
 const router = Router();
+
 
 router.get("/getTrain", async (req, resp) => {
   const trainNo = req.query.trainNo;
@@ -102,5 +104,20 @@ router.get("/getRoute", async (req, resp) => {
     console.log(err.message);
   }
 });
+
+router.get("/stationLive", async (req, resp) => {
+  const code = req.query.code;
+  try {
+    let URL_Train = `https://erail.in/station-live/${code}?DataSource=0&Language=0&Cache=true`;
+    let response = await fetch(URL_Train);
+    let data = await response.text();
+    const $ = cheerio.load(data)
+    let json = prettify.LiveStation($);
+    resp.send(json)
+  } catch (err) {
+    console.log(err.message);
+  }
+});
+
 
 export default router;

@@ -103,6 +103,27 @@ class Prettify {
       console.log(err.message);
     }
   }
+  
+  LiveStation($){
+    let arr = [];
+    let obj = {};
+    let retval = {};
+    $('.name').each((i,el)=>{
+      obj["train_no"] = $(el).text().slice(0,5)
+      obj["train_name"] = $(el).text().slice(5).trim()
+      obj["source_stn_name"] = $(el).next("div").text().split("→")[0].trim()
+      obj["dstn_stn_name"] = $(el).next("div").text().split("→")[1].trim()
+      obj["time_at"] = $(el).parent("td").next("td").text().slice(0,5)
+      obj["detail"] = $(el).parent("td").next("td").text().slice(5)
+      // console.log($(el).text() + " : " + $(el).next("div").text() + " : " + $(el).parent("td").next("td").text().slice(0,5))
+      arr.push(obj)
+      obj = {}
+    })
+    retval["success"] = true;
+    retval["time_stamp"] = Date.now();
+    retval["data"] = arr;
+    return retval;
+  }
 
   CheckTrain(string) {
     try {
