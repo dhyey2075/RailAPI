@@ -1,3 +1,12 @@
+# [1.1.0](https://github.com/AniCrad/indian-rail-api/compare/v1.0.1...v1.1.0) (2024-03-12)
+
+
+### Features
+
+* live station train data ([bbe830f](https://github.com/AniCrad/indian-rail-api/commit/bbe830fe9c55826716f03791f1b2891166e6c210))
+
+
+
 ## [1.0.1](https://github.com/AniCrad/indian-rail-api/compare/v1.0.0...v1.0.1) (2022-11-08)
 
 
