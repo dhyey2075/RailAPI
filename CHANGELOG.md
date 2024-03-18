@@ -1,3 +1,12 @@
+# [1.2.0](https://github.com/AniCrad/indian-rail-api/compare/v1.1.0...v1.2.0) (2024-03-18)
+
+
+### Features
+
+* pnr status ([89f520a](https://github.com/AniCrad/indian-rail-api/commit/89f520ae51bfb2727f334111a88212fc19729f2c))
+
+
+
 # [1.1.0](https://github.com/AniCrad/indian-rail-api/compare/v1.0.1...v1.1.0) (2024-03-12)
 
 
