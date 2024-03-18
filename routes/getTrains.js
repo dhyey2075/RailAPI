@@ -119,5 +119,20 @@ router.get("/stationLive", async (req, resp) => {
   }
 });
 
+router.get("/pnrstatus",async(req,resp)=>{
+  const pnrnumber = req.query.pnr;
+  try {
+    //inspired from RobinKumar5986 (pull request #3)
+    let URL_Train = `https://www.confirmtkt.com/pnr-status/${pnrnumber}`
+    let response = await fetch(URL_Train);
+    let data = await response.text();
+    let json = prettify.PnrStatus(data);
+    resp.send(json)
+  } catch (error) {
+    console.log(error)
+  }
+
+})
+
 
 export default router;
