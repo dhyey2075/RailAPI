@@ -125,6 +125,17 @@ class Prettify {
     return retval;
   }
 
+  PnrStatus(string){
+    let retval = {};
+    var pattern = /data\s*=\s*({.*?;)/
+    let match = string.match(pattern)[0].slice(7,-1)
+    let data = JSON.parse(match)
+    retval["success"] = true;
+    retval["time_stamp"] = Date.now();
+    retval["data"] = data
+    return retval
+  }
+
   CheckTrain(string) {
     try {
       let obj = {};
